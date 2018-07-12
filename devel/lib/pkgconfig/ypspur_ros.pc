@@ -1,0 +1,8 @@
+prefix=/home/user/catkin_ws/devel
+
+Name: ypspur_ros
+Description: Description of ypspur_ros
+Version: 0.2.0
+Cflags: 
+Libs: -L/home/user/catkin_ws/devel/lib 
+Requires: roscpp geometry_msgs nav_msgs sensor_msgs std_msgs tf trajectory_msgs

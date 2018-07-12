@@ -1,0 +1,14 @@
+float32 Time
+float32 EulerHeading
+float32 EulerRoll
+float32 AccelerometerX
+float32 AccelerometerY
+float32 AccelerometerZ
+float32 LinearAccelerX
+float32 LinearAccelerY
+float32 LinearAccelerZ
+float32 GravAccelerX
+float32 GravAccelerY
+float32 GravAccelerZ
+float32 EulerPitch
+

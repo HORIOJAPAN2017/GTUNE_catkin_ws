@@ -1,0 +1,38 @@
+<launch>
+
+<!-- A simple launch file for the urg_node package. -->
+
+<!--  When using an IP-connected LIDAR, populate the "ip_address" parameter with the address of the LIDAR.
+      Otherwise, leave it blank. If supported by your LIDAR, you may enable the publish_intensity
+      and/or publish_multiecho options. -->
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial_python">
+    <param name="port" value="/dev/serial/by-id/usb-Arduino_Srl_Arduino_Uno_85438333036351213111-if00"/>
+  </node>
+ 
+  <node name="serial" pkg="test_opencv" type="serial">
+  </node>
+
+  <group ns="urg_front">
+    <node name="urg_node" pkg="urg_node" type="urg_node" output="screen">
+      <param name="ip_address" value="192.168.0.10"/>
+      <param name="serial_port" value=""/>
+      <param name="serial_baud" value="115200"/>
+      <param name="frame_id" value="laser"/>
+      <param name="calibrate_time" value="false"/>
+      <param name="publish_intensity" value="false"/>
+      <param name="publish_multiecho" value="false"/>
+      <param name="angle_min" value="-1.3962634"/>
+      <param name="angle_max" value="1.3962634"/>
+    </node>
+  </group>
+  <node name="img_topview_publisher" pkg="test_opencv" type="img_topview_publisher">
+  </node>
+  <node name="img_topview_subscriber" pkg="test_opencv" type="img_topview_subscriber">
+  </node>
+  <node name="key" pkg="test_opencv" type="key">
+  </node>
+  <node name="write_path_coordinate" pkg="test_opencv" type="write_path_coordinate">
+  </node>
+
+
+</launch>
